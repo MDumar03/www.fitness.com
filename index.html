@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness & Nutrition Tracker | Home</title>
+    <meta name="description" content="Track your fitness journey and nutrition goals with our comprehensive tools and resources">
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo/fitness-logo.png" alt="Fitness & Nutrition Tracker Logo">
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/fitness-plans.html">Fitness Plans</a></li>
+                <li><a href="pages/nutrition-tips.html">Nutrition Tips</a></li>
+                <li><a href="pages/progress-tracker.html">Progress Tracker</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Life Through Fitness & Nutrition</h1>
+            <p>Track your progress, plan your workouts, and achieve your health goals with our comprehensive tools.</p>
+            <div class="cta-buttons">
+                <a href="pages/fitness-plans.html" class="btn primary">Start Your Journey</a>
+                <a href="pages/progress-tracker.html" class="btn secondary">Track Progress</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Our Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-dumbbell"></i>
+                <h3>Personalized Workouts</h3>
+                <p>Create custom workout plans tailored to your fitness level and goals.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-apple-alt"></i>
+                <h3>Nutrition Planning</h3>
+                <p>Access healthy recipes and track your daily calorie intake.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Progress Tracking</h3>
+                <p>Monitor your fitness journey with detailed progress analytics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Tools Section -->
+    <section class="quick-tools">
+        <h2>Quick Start Tools</h2>
+        <div class="tools-container">
+            <div class="tool-widget">
+                <h3>BMI Calculator</h3>
+                <div class="calculator-form">
+                    <input type="number" id="weight" placeholder="Weight (kg)">
+                    <input type="number" id="height" placeholder="Height (cm)">
+                    <button onclick="calculateBMI()" class="btn primary">Calculate BMI</button>
+                    <div id="bmi-result"></div>
+                </div>
+            </div>
+            <div class="tool-widget">
+                <h3>Daily Water Intake</h3>
+                <div id="water-tracker">
+                    <p>Track your daily water intake:</p>
+                    <div class="water-counter">
+                        <button onclick="updateWater(-1)" class="btn secondary">-</button>
+                        <span id="water-glasses">0</span> glasses
+                        <button onclick="updateWater(1)" class="btn secondary">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Success Stories</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <img src="images/testimonials/user1.jpg" alt="User testimonial">
+                <p>"This tracker helped me lose 20kg in 6 months through consistent tracking and planning."</p>
+                <h4>Sarah Johnson</h4>
+            </div>
+            <!-- More testimonials will be added dynamically via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="pages/fitness-plans.html">Fitness Plans</a></li>
+                    <li><a href="pages/nutrition-tips.html">Nutrition Tips</a></li>
+                    <li><a href="pages/progress-tracker.html">Progress Tracker</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fitness & Nutrition Tracker. Educational Project.</p>
+            <p>This is a demonstration website developed as an educational exercise.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/bmi-calculator.js"></script>
+    <script src="js/water-tracker.js"></script>
+</body>
+</html>

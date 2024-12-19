@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Plans | Fitness & Nutrition Tracker</title>
+    <meta name="description" content="Customized workout plans for all fitness levels with interactive planning tools">
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- <link rel="stylesheet" href="../css/responsive.css"> -->
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo/fitness-logo.png" alt="Fitness & Nutrition Tracker Logo">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="fitness-plans.html" class="active">Fitness Plans</a></li>
+                <li><a href="nutrition-tips.html">Nutrition Tips</a></li>
+                <li><a href="progress-tracker.html">Progress Tracker</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1>Fitness Plans</h1>
+        <p>Customized workout plans for every fitness level</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="fitness-plans-page">
+        <!-- Fitness Level Selector -->
+        <div class="fitness-levels">
+            <button class="level-btn active" data-level="beginner" onclick="showPlans('beginner')">Beginner</button>
+            <button class="level-btn" data-level="intermediate" onclick="showPlans('intermediate')">Intermediate</button>
+            <button class="level-btn" data-level="advanced" onclick="showPlans('advanced')">Advanced</button>
+        </div>
+
+        <!-- Workout Plans Section -->
+        <section class="workout-plans">
+<!-- Beginner Plans -->
+<div class="plan-category" id="beginner-plans">
+    <h2>Beginner Workout Plans</h2>
+    <div class="plans-grid">
+        <div class="plan-card">
+            <h3>Total Body Beginner</h3>
+            <p>Targets all major muscle groups with simple exercises. Great for absolute beginners.</p>
+            <ul class="plan-details">
+                <li><i class="fas fa-clock"></i> 45 minutes</li>
+                <li><i class="fas fa-calendar"></i> 3 times/week</li>
+                <li><i class="fas fa-dumbbell"></i> Bodyweight only</li>
+            </ul>
+            <a href="#" class="view-plan">View Plan</a>
+        </div>
+        <div class="plan-card">
+            <h3>Beginner Yoga Flow</h3>
+            <p>Gentle yoga sequence to build flexibility, strength, and balance.</p>
+            <ul class="plan-details">
+                <li><i class="fas fa-clock"></i> 25 minutes</li>
+                <li><i class="fas fa-calendar"></i> 2 times/week</li>
+                <li><i class="fas fa-dumbbell"></i> Yoga mat</li>
+            </ul>
+            <a href="#" class="view-plan">View Plan</a>
+        </div>
+    </div>
+</div>
+
+<!-- Intermediate Plans -->
+<div class="plan-category" id="intermediate-plans" style="display: none;">
+    <h2>Intermediate Workout Plans</h2>
+    <div class="plans-grid">
+        <div class="plan-card">
+            <h3>Strength & Cardio</h3>
+            <p>Combines resistance training and interval cardio for an efficient full-body workout.</p>
+            <ul class="plan-details">
+                <li><i class="fas fa-clock"></i> 55 minutes</li>
+                <li><i class="fas fa-calendar"></i> 4 times/week</li>
+                <li><i class="fas fa-dumbbell"></i> Dumbbells, Resistance bands</li>
+            </ul>
+            <a href="#" class="view-plan">View Plan</a>
+        </div>
+        <div class="plan-card">
+            <h3>Intermediate Cycling</h3>
+            <p>Challenging cycling workouts to build endurance and leg strength.</p>
+            <ul class="plan-details">
+                <li><i class="fas fa-clock"></i> 40 minutes</li>
+                <li><i class="fas fa-calendar"></i> 3 times/week</li>
+                <li><i class="fas fa-dumbbell"></i> Stationary bike</li>
+            </ul>
+            <a href="#" class="view-plan">View Plan</a>
+        </div>
+    </div>
+</div>
+
+<!-- Advanced Plans -->
+<div class="plan-category" id="advanced-plans" style="display: none;">
+    <h2>Advanced Workout Plans</h2>
+    <div class="plans-grid">
+        <div class="plan-card">
+            <h3>Power Lifting</h3>
+            <p>Comprehensive strength training plan focused on major compound lifts.</p>
+            <ul class="plan-details">
+                <li><i class="fas fa-clock"></i> 75 minutes</li>
+                <li><i class="fas fa-calendar"></i> 5 times/week</li>
+                <li><i class="fas fa-dumbbell"></i> Barbells, plates</li>
+            </ul>
+            <a href="#" class="view-plan">View Plan</a>
+        </div>
+        <div class="plan-card">
+            <h3>Advanced HIIT</h3>
+            <p>High-intensity interval training to maximize calorie burn and cardiovascular fitness.</p>
+            <ul class="plan-details">
+                <li><i class="fas fa-clock"></i> 35 minutes</li>
+                <li><i class="fas fa-calendar"></i> 4 times/week</li>
+                <li><i class="fas fa-dumbbell"></i> Bodyweight, Kettlebell</li>
+            </ul>
+            <a href="#" class="view-plan">View Plan</a>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Exercise Library -->
+<section class="exercise-library">
+    <h2>Exercise Library</h2>
+    <div class="exercise-filters">
+        <button class="filter-btn active" data-filter="all" onclick="filterExercises('all')">All</button>
+        <button class="filter-btn" data-filter="upper" onclick="filterExercises('upper')">Upper Body</button>
+        <button class="filter-btn" data-filter="lower" onclick="filterExercises('lower')">Lower Body</button>
+        <button class="filter-btn" data-filter="core" onclick="filterExercises('core')">Core</button>
+        <button class="filter-btn" data-filter="cardio" onclick="filterExercises('cardio')">Cardio</button>
+    </div>
+
+    <div class="exercise-grid">
+        <div class="exercise-card" data-target="upper">
+            <h3>Bicep Curls</h3>
+            <p>Isolation exercise for the biceps.</p>
+            <button class="btn secondary" onclick="showExerciseDetails('bicep-curls')">View Details</button>
+        </div>
+        <div class="exercise-card" data-target="upper">
+            <h3>Shoulder Press</h3>
+            <p>Compound exercise targeting the shoulders.</p>
+            <button class="btn secondary" onclick="showExerciseDetails('shoulder-press')">View Details</button>
+        </div>
+        <div class="exercise-card" data-target="lower">
+            <h3>Deadlifts</h3>
+            <p>Compound exercise for the posterior chain.</p>
+            <button class="btn secondary" onclick="showExerciseDetails('deadlifts')">View Details</button>
+        </div>
+        <div class="exercise-card" data-target="lower">
+            <h3>Squats</h3>
+            <p>Compound exercise targeting the quadriceps and glutes.</p>
+            <button class="btn secondary" onclick="showExerciseDetails('squats')">View Details</button>
+        </div>
+        <div class="exercise-card" data-target="core">
+            <h3>Planks</h3>
+            <p>Isometric exercise for core stability.</p>
+            <button class="btn secondary" onclick="showExerciseDetails('planks')">View Details</button>
+        </div>
+        <div class="exercise-card" data-target="core">
+            <h3>Russian Twists</h3>
+            <p>Oblique-targeting exercise for the core.</p>
+            <button class="btn secondary" onclick="showExerciseDetails('russian-twists')">View Details</button>
+        </div>
+        <div class="exercise-card" data-target="cardio">
+            <h3>Jumping Jacks</h3>
+            <p>Simple cardio exercise to elevate heart rate.</p>
+            <button class="btn secondary" onclick="showExerciseDetails('jumping-jacks')">View Details</button>
+        </div>
+        <div class="exercise-card" data-target="cardio">
+            <h3>Burpees</h3>
+            <p>Full-body cardio and strength exercise.</p>
+            <button class="btn secondary" onclick="showExerciseDetails('burpees')">View Details</button>
+        </div>
+    </div>
+</section>
+
+            <!-- Workout Tips -->
+            <section class="workout-tips">
+                <h2>Workout Tips</h2>
+                <div class="tips-container">
+                    <div class="tip-card">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Proper Warm-up</h3>
+                        <p>Always start with a 5-10 minute warm-up to prevent injury and prepare your body for exercise.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-water"></i>
+                        <h3>Stay Hydrated</h3>
+                        <p>Drink water before, during, and after your workout to maintain proper hydration.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-bed"></i>
+                        <h3>Rest & Recovery</h3>
+                        <p>Allow adequate rest between workouts to prevent overtraining and promote muscle recovery.</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="fitness-plans.html">Fitness Plans</a></li>
+                    <li><a href="nutrition-tips.html">Nutrition Tips</a></li>
+                    <li><a href="progress-tracker.html">Progress Tracker</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fitness & Nutrition Tracker. Educational Project.</p>
+            <p>This is a demonstration website developed as an educational exercise.</p>
+        </div>
+    </footer>
+
+    <!-- Modal for Workout Details -->
+    <div id="workout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="workout-details"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="../js/main.js"></script>
+    <script src="../js/workout-planner.js"></script>
+    <script src="../js/exercise-library.js"></script>
+</body>
+</html>

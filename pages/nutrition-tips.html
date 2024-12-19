@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Tips | Fitness & Nutrition Tracker</title>
+    <meta name="description" content="Healthy eating tips, meal plans, and nutrition calculator">
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- <link rel="stylesheet" href="../css/responsive.css"> -->
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo/fitness-logo.png" alt="Fitness & Nutrition Tracker Logo">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="fitness-plans.html">Fitness Plans</a></li>
+                <li><a href="nutrition-tips.html" class="active">Nutrition Tips</a></li>
+                <li><a href="progress-tracker.html">Progress Tracker</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1>Nutrition Tips & Meal Planning</h1>
+        <p>Discover healthy eating habits and calculate your nutritional needs</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="nutrition-page">
+<!-- Calorie Calculator Section -->
+<section class="calorie-calculator">
+    <h2>Daily Calorie Calculator</h2>
+    <div class="calculator-container">
+        <form id="calorie-form" class="calculator-form">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" required min="15" max="100">
+            </div>
+            
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="radio-group">
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" required min="30" max="300">
+            </div>
+            
+            <div class="form-group">
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" required min="100" max="250">
+            </div>
+            
+            <div class="form-group">
+                <label for="activity">Activity Level:</label>
+                <select id="activity" required>
+                    <option value="1.2">Sedentary (little or no exercise)</option>
+                    <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
+                    <option value="1.55">Moderately active (moderate exercise 3-5 days/week)</option>
+                    <option value="1.725">Very active (hard exercise 6-7 days/week)</option>
+                    <option value="1.9">Extra active (very hard exercise & physical job)</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn primary">Calculate Calories</button>
+        </form>
+        
+        <div id="calorie-result" class="calculator-result">
+            <!-- Results will be displayed here -->
+        </div>
+    </div>
+</section>
+
+<!-- Meal Planning Section -->
+<section class="meal-planning">
+    <h2>Weekly Meal Planner</h2>
+    <div class="meal-planner-container">
+        <div class="meal-preferences">
+            <h3>Dietary Preferences</h3>
+            <div class="checkbox-group">
+                <input type="checkbox" id="vegetarian" value="vegetarian">
+                <label for="vegetarian">Vegetarian</label>
+                
+                <input type="checkbox" id="vegan" value="vegan">
+                <label for="vegan">Vegan</label>
+                
+                <input type="checkbox" id="gluten-free" value="gluten-free">
+                <label for="gluten-free">Gluten-Free</label>
+                
+                <input type="checkbox" id="dairy-free" value="dairy-free">
+                <label for="dairy-free">Dairy-Free</label>
+            </div>
+            <button class="btn secondary" onclick="generateMealPlan()">Generate Meal Plan</button>
+        </div>
+        
+        <div id="meal-plan" class="weekly-meal-plan">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Breakfast</th>
+                        <th>Lunch</th>
+                        <th>Dinner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td>Overnight Oats</td>
+                        <td>Mediterranean Quinoa Salad</td>
+                        <td>Lemon Herb Grilled Salmon</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>Avocado Toast with Egg</td>
+                        <td>Hummus and Veggie Wrap</td>
+                        <td>Vegetable Tofu Stir-Fry</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>Berry Smoothie Bowl</td>
+                        <td>Greek Yogurt Chicken Salad</td>
+                        <td>Zucchini Noodles with Turkey Meatballs</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>Protein-Packed Overnight Oats</td>
+                        <td>Mediterranean Quinoa Salad</td>
+                        <td>Lemon Herb Grilled Salmon</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>Avocado Toast with Egg</td>
+                        <td>Hummus and Veggie Wrap</td>
+                        <td>Vegetable Tofu Stir-Fry</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>Berry Smoothie Bowl</td>
+                        <td>Greek Yogurt Chicken Salad</td>
+                        <td>Zucchini Noodles with Turkey Meatballs</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>Protein-Packed Overnight Oats</td>
+                        <td>Mediterranean Quinoa Salad</td>
+                        <td>Lemon Herb Grilled Salmon</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+        <!-- Healthy Recipes Section -->
+        <section class="healthy-recipes">
+            <h2>Healthy Recipes</h2>
+            <div class="recipe-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="breakfast">Breakfast</button>
+                <button class="filter-btn" data-filter="lunch">Lunch</button>
+                <button class="filter-btn" data-filter="dinner">Dinner</button>
+                <button class="filter-btn" data-filter="snacks">Snacks</button>
+            </div>
+            
+            <div class="recipes-grid">
+                <!-- Breakfast Recipe Cards -->
+                <div class="recipe-card" data-category="breakfast">
+                  <img src="../images/recipes/overnight-oats.jpg" alt="Overnight Oats">
+                  <div class="recipe-content">
+                    <h3>Protein-Packed Overnight Oats</h3>
+                    <div class="recipe-meta">
+                      <span><i class="fas fa-clock"></i> 5 mins prep</span>
+                      <span><i class="fas fa-fire"></i> 350 calories</span>
+                    </div>
+                    <button class="btn secondary" onclick="showRecipe('overnight-oats')">View Recipe</button>
+                  </div>
+                </div>
+                <div class="recipe-card" data-category="breakfast">
+                  <img src="../images/recipes/avocado-toast.jpg" alt="Avocado Toast">
+                  <div class="recipe-content">
+                    <h3>Avocado Toast with Egg</h3>
+                    <div class="recipe-meta">
+                      <span><i class="fas fa-clock"></i> 10 mins prep</span>
+                      <span><i class="fas fa-fire"></i> 400 calories</span>
+                    </div>
+                    <button class="btn secondary" onclick="showRecipe('avocado-toast')">View Recipe</button>
+                  </div>
+                </div>
+                <div class="recipe-card" data-category="breakfast">
+                  <img src="../images/recipes/smoothie-bowl.jpg" alt="Smoothie Bowl">
+                  <div class="recipe-content">
+                    <h3>Berry Smoothie Bowl</h3>
+                    <div class="recipe-meta">
+                      <span><i class="fas fa-clock"></i> 15 mins prep</span>
+                      <span><i class="fas fa-fire"></i> 300 calories</span>
+                    </div>
+                    <button class="btn secondary" onclick="showRecipe('smoothie-bowl')">View Recipe</button>
+                  </div>
+                </div>
+              
+                <!-- Lunch Recipe Cards -->
+                <div class="recipe-card" data-category="lunch">
+                  <img src="../images/recipes/quinoa-salad.jpg" alt="Quinoa Salad">
+                  <div class="recipe-content">
+                    <h3>Mediterranean Quinoa Salad</h3>
+                    <div class="recipe-meta">
+                      <span><i class="fas fa-clock"></i> 20 mins prep</span>
+                      <span><i class="fas fa-fire"></i> 400 calories</span>
+                    </div>
+                    <button class="btn secondary" onclick="showRecipe('quinoa-salad')">View Recipe</button>
+                  </div>
+                </div>
+                <div class="recipe-card" data-category="lunch">
+                  <img src="../images/recipes/veggie-wrap.jpg" alt="Veggie Wrap">
+                  <div class="recipe-content">
+                    <h3>Hummus and Veggie Wrap</h3>
+                    <div class="recipe-meta">
+                      <span><i class="fas fa-clock"></i> 15 mins prep</span>
+                      <span><i class="fas fa-fire"></i> 350 calories</span>
+                    </div>
+                    <button class="btn secondary" onclick="showRecipe('veggie-wrap')">View Recipe</button>
+                  </div>
+                </div>
+                <div class="recipe-card" data-category="lunch">
+                  <img src="../images/recipes/chicken-salad.jpg" alt="Chicken Salad">
+                  <div class="recipe-content">
+                    <h3>Greek Yogurt Chicken Salad</h3>
+                    <div class="recipe-meta">
+                      <span><i class="fas fa-clock"></i> 25 mins prep</span>
+                      <span><i class="fas fa-fire"></i> 450 calories</span>
+                    </div>
+                    <button class="btn secondary" onclick="showRecipe('chicken-salad')">View Recipe</button>
+                  </div>
+                </div>
+              
+                <!-- Dinner Recipe Cards -->
+                <div class="recipe-card" data-category="dinner">
+                  <img src="../images/recipes/grilled-salmon.jpg" alt="Grilled Salmon">
+                  <div class="recipe-content">
+                    <h3>Lemon Herb Grilled Salmon</h3>
+                    <div class="recipe-meta">
+                      <span><i class="fas fa-clock"></i> 30 mins prep</span>
+                      <span><i class="fas fa-fire"></i> 450 calories</span>
+                    </div>
+                    <button class="btn secondary" onclick="showRecipe('grilled-salmon')">View Recipe</button>
+                  </div>
+                </div>
+                <div class="recipe-card" data-category="dinner">
+                  <img src="../images/recipes/stir-fry.jpg" alt="Tofu Stir-Fry">
+                  <div class="recipe-content">
+                    <h3>Vegetable Tofu Stir-Fry</h3>
+                    <div class="recipe-meta">
+                      <span><i class="fas fa-clock"></i> 35 mins prep</span>
+                      <span><i class="fas fa-fire"></i> 400 calories</span>
+                    </div>
+                    <button class="btn secondary" onclick="showRecipe('tofu-stir-fry')">View Recipe</button>
+                  </div>
+                </div>
+                <div class="recipe-card" data-category="dinner">
+                  <img src="../images/recipes/turkey-meatballs.jpg" alt="Turkey Meatballs">
+                  <div class="recipe-content">
+                    <h3>Zucchini Noodles with Turkey Meatballs</h3>
+                    <div class="recipe-meta">
+                      <span><i class="fas fa-clock"></i> 40 mins prep</span>
+                      <span><i class="fas fa-fire"></i> 500 calories</span>
+                    </div>
+                    <button class="btn secondary" onclick="showRecipe('turkey-meatballs')">View Recipe</button>
+                  </div>
+                </div>
+              
+                <!-- Snacks Recipe Cards -->
+                <div class="recipe-card" data-category="snacks">
+                  <img src="../images/recipes/energy-balls.jpg" alt="Energy Balls">
+                  <div class="recipe-content">
+                    <h3>No-Bake Energy Balls</h3>
+                    <div class="recipe-meta">
+                      <span><i class="fas fa-clock"></i> 10 mins prep</span>
+                      <span><i class="fas fa-fire"></i> 150 calories</span>
+                    </div>
+                    <button class="btn secondary" onclick="showRecipe('energy-balls')">View Recipe</button>
+                  </div>
+                </div>
+                <div class="recipe-card" data-category="snacks">
+                  <img src="../images/recipes/roasted-chickpeas.jpg" alt="Roasted Chickpeas">
+                  <div class="recipe-content">
+                    <h3>Spicy Roasted Chickpeas</h3>
+                    <div class="recipe-meta">
+                      <span><i class="fas fa-clock"></i> 25 mins prep</span>
+                      <span><i class="fas fa-fire"></i> 120 calories</span>
+                    </div>
+                    <button class="btn secondary" onclick="showRecipe('roasted-chickpeas')">View Recipe</button>
+                  </div>
+                </div>
+                <div class="recipe-card" data-category="snacks">
+                  <img src="../images/recipes/fruit-skewers.jpg" alt="Fruit Skewers">
+                  <div class="recipe-content">
+                    <h3>Rainbow Fruit Skewers</h3>
+                    <div class="recipe-meta">
+                      <span><i class="fas fa-clock"></i> 15 mins prep</span>
+                      <span><i class="fas fa-fire"></i> 80 calories</span>
+                    </div>
+                    <button class="btn secondary" onclick="showRecipe('fruit-skewers')">View Recipe</button>
+                  </div>
+                </div>
+              </div>
+        </section>
+
+        <!-- Nutrition Tips Section -->
+        <section class="nutrition-tips-section">
+            <h2>Essential Nutrition Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Portion Control</h3>
+                    <p>Learn how to manage portion sizes effectively for better weight management.</p>
+                    <button class="btn secondary" onclick="showTipDetails('portion-control')">Learn More</button>
+                </div>
+                
+                <div class="tip-card">
+                    <i class="fas fa-carrot"></i>
+                    <h3>Balanced Meals</h3>
+                    <p>Understanding macronutrients and creating balanced meals for optimal nutrition.</p>
+                    <button class="btn secondary" onclick="showTipDetails('balanced-meals')">Learn More</button>
+                </div>
+                
+                <div class="tip-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Meal Timing</h3>
+                    <p>Optimize your meal timing for better energy levels throughout the day.</p>
+                    <button class="btn secondary" onclick="showTipDetails('meal-timing')">Learn More</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Recipe Modal -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="recipe-details">
+                <!-- Recipe details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="fitness-plans.html">Fitness Plans</a></li>
+                    <li><a href="nutrition-tips.html">Nutrition Tips</a></li>
+                    <li><a href="progress-tracker.html">Progress Tracker</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fitness & Nutrition Tracker. Educational Project.</p>
+            <p>This is a demonstration website developed as an educational exercise.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="../js/main.js"></script>
+    <script src="../js/calorie-calculator.js"></script>
+    <script src="../js/meal-planner.js"></script>
+    <script src="../js/recipes.js"></script>
+</body>
+</html>

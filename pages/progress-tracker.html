@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracker | Fitness & Nutrition Tracker</title>
+    <meta name="description" content="Track your fitness progress, measurements, and achievements">
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- <link rel="stylesheet" href="../css/responsive.css"> -->
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo/fitness-logo.png" alt="Fitness & Nutrition Tracker Logo">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="fitness-plans.html">Fitness Plans</a></li>
+                <li><a href="nutrition-tips.html">Nutrition Tips</a></li>
+                <li><a href="progress-tracker.html" class="active">Progress Tracker</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1>Track Your Progress</h1>
+        <p>Monitor your fitness journey and celebrate your achievements</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="progress-tracker-page">
+        <!-- Quick Stats Dashboard -->
+        <section class="quick-stats">
+            <h2>Progress Dashboard</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-weight"></i>
+                    <h3>Current Weight</h3>
+                    <p id="current-weight">-- kg</p>
+                    <span class="trend positive" id="weight-trend">↑ 0.0 kg this week</span>
+                </div>
+                
+                <div class="stat-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Goal Weight</h3>
+                    <p id="goal-weight">-- kg</p>
+                    <span id="weight-remaining">-- kg to go</span>
+                </div>
+                
+                <div class="stat-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Weekly Calories Burned</h3>
+                    <p id="calories-burned">-- kcal</p>
+                </div>
+                
+                <div class="stat-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Workouts This Week</h3>
+                    <p id="workout-count">--</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Charts -->
+        <section class="progress-charts">
+            <div class="chart-container">
+                <h2>Weight Progress</h2>
+                <canvas id="weightChart"></canvas>
+                <div class="chart-controls">
+                    <button class="btn secondary" onclick="updateChartRange('weight', '1m')">1M</button>
+                    <button class="btn secondary" onclick="updateChartRange('weight', '3m')">3M</button>
+                    <button class="btn secondary" onclick="updateChartRange('weight', '6m')">6M</button>
+                    <button class="btn secondary" onclick="updateChartRange('weight', '1y')">1Y</button>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h2>Body Measurements</h2>
+                <canvas id="measurementsChart"></canvas>
+                <div class="chart-controls">
+                    <button class="btn secondary" onclick="updateChartRange('measurements', '1m')">1M</button>
+                    <button class="btn secondary" onclick="updateChartRange('measurements', '3m')">3M</button>
+                    <button class="btn secondary" onclick="updateChartRange('measurements', '6m')">6M</button>
+                    <button class="btn secondary" onclick="updateChartRange('measurements', '1y')">1Y</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Entry Section -->
+        <section class="data-entry">
+            <h2>Log Your Progress</h2>
+            <div class="entry-forms">
+                <!-- Weight Entry Form -->
+                <form id="weight-form" class="entry-form">
+                    <h3>Log Weight</h3>
+                    <div class="form-group">
+                        <label for="weight-date">Date:</label>
+                        <input type="date" id="weight-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight-value">Weight (kg):</label>
+                        <input type="number" id="weight-value" step="0.1" required>
+                    </div>
+                    <button type="submit" class="btn primary">Log Weight</button>
+                </form>
+
+                <!-- Measurements Entry Form -->
+                <form id="measurements-form" class="entry-form">
+                    <h3>Log Measurements</h3>
+                    <div class="form-group">
+                        <label for="measurement-date">Date:</label>
+                        <input type="date" id="measurement-date" required>
+                    </div>
+                    <div class="measurements-grid">
+                        <div class="form-group">
+                            <label for="chest">Chest (cm):</label>
+                            <input type="number" id="chest" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="waist">Waist (cm):</label>
+                            <input type="number" id="waist" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="hips">Hips (cm):</label>
+                            <input type="number" id="hips" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="thighs">Thighs (cm):</label>
+                            <input type="number" id="thighs" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="biceps">Biceps (cm):</label>
+                            <input type="number" id="biceps" step="0.1">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn primary">Log Measurements</button>
+                </form>
+
+                <!-- Workout Entry Form -->
+                <form id="workout-form" class="entry-form">
+                    <h3>Log Workout</h3>
+                    <div class="form-group">
+                        <label for="workout-date">Date:</label>
+                        <input type="date" id="workout-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="workout-type">Workout Type:</label>
+                        <select id="workout-type" required>
+                            <option value="">Select type</option>
+                            <option value="strength">Strength Training</option>
+                            <option value="cardio">Cardio</option>
+                            <option value="flexibility">Flexibility</option>
+                            <option value="hiit">HIIT</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration (minutes):</label>
+                        <input type="number" id="duration" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="calories">Calories Burned:</label>
+                        <input type="number" id="calories" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Notes:</label>
+                        <textarea id="notes" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn primary">Log Workout</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Progress History -->
+        <section class="progress-history">
+            <h2>History & Achievements</h2>
+            <div class="history-tabs">
+                <button class="tab-btn active" onclick="showHistory('workouts')">Workouts</button>
+                <button class="tab-btn" onclick="showHistory('measurements')">Measurements</button>
+                <button class="tab-btn" onclick="showHistory('achievements')">Achievements</button>
+            </div>
+            
+            <div id="history-content" class="history-content">
+                <!-- Content will be dynamically loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="fitness-plans.html">Fitness Plans</a></li>
+                    <li><a href="nutrition-tips.html">Nutrition Tips</a></li>
+                    <li><a href="progress-tracker.html">Progress Tracker</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fitness & Nutrition Tracker. Educational Project.</p>
+            <p>This is a demonstration website developed as an educational exercise.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="../js/main.js"></script>
+    <script src="../js/progress-tracker.js"></script>
+    <script src="../js/charts.js"></script>
+    <script src="../js/history.js"></script>
+</body>
+</html>
